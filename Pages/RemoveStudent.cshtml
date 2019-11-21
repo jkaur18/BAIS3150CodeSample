@@ -1,0 +1,45 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.RemoveStudentModel
+@{
+    ViewData["Title"] = "RemoveStudent";
+}
+
+
+
+    <form method="post">
+        <a asp-page="./FindStudent" class="btn btn-info" role="button">< Back</a>
+        <h1>RemoveStudent</h1>
+        <br />
+        <br />
+        <div class="container-fluid">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                </tr>
+                                <tr>
+                                    <td>@Model.EnrolledStudent.Firstname</td>
+                                    <td>@Model.EnrolledStudent.Lastname</td>
+                                    <td>@Model.EnrolledStudent.Email</td>
+                                </tr>
+                                <tr>
+                                    <td>Are you sure?</td>
+                                    <td style="text-align:center;"><input asp-for="Confirmation" onchange="document.getElementById('Delete').disabled = !this.checked;"></td>
+                                </tr>
+                            </table>
+                            <br />
+                            <button type="submit" disabled id="Delete" class="btn btn-success">Delete</button>
+                            <br />
+                            <br />
+                            @Model.Alert
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

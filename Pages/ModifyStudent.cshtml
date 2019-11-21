@@ -1,0 +1,50 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.ModifyStudentModel
+@{
+    ViewData["Title"] = "ModifyStudent";
+}
+
+
+
+    <form method="post">
+        <a asp-page="./FindStudent" class="btn btn-info" role="button">< Back</a>
+        <h1>ModifyStudent</h1>
+        <div class="container-fluid">
+            <div class="panel panel-success">
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <div>First Name:</div>
+                        <input asp-for="@Model.EnrolledStudent.Firstname" name="FirstName" />
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div> Last Name:</div>
+                        <input asp-for="@Model.EnrolledStudent.Lastname" name="LastName" />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <div>Email:</div>
+                        <input asp-for="@Model.EnrolledStudent.Email" name="Email" />
+                        <span asp-validation-for="Email"></span>
+                    </div>
+                    @*<div class="form-group">
+                        <div>Program Code:@Model.EnrolledStudent.Programcode</div>
+                    </div>*@
+                    <div>
+                        Are you sure?
+                        <input asp-for="Confirmation" onchange="document.getElementById('Update').disabled = !this.checked;">
+                    </div>
+
+                    @Model.Alert
+                    <br />
+                    <div class="form-group">
+                        <button type="submit" disabled id="Update" class="btn btn-success">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>

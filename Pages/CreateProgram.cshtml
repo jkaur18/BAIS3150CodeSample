@@ -1,0 +1,30 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.CreateProgramModel
+@{
+    ViewData["Title"] = "CreateProgram";
+}
+
+<h1>CreateProgram</h1>
+
+<form method="post">
+    <a asp-page="./FindProgram" class="btn btn-info" role="button">< Back</a>
+    <br />
+    <div class="container-fluid">
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        Enter Program Code: <input name="programCode" />
+                        <span asp-validation-for="programCode"></span>
+                    </div><br />
+                    <div class="col-sm-">
+                        Enter Program Description: <input name="description" />
+                        <span asp-validation-for="description"></span>
+                    </div><br />
+                    <div class="col-sm-4"><button class="btn btn-success">Add</button></div>
+                </div>
+                @Model.Alert
+            </div>
+        </div>
+    </div>
+</form>

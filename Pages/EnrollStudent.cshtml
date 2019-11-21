@@ -1,0 +1,61 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.EnrollStudentModel
+@{
+    ViewData["Title"] = "EnrollStudent";
+}
+
+
+
+    <form method="post">
+        <a asp-page="./FindStudent" class="btn btn-info" role="button">< Back</a>
+        <h1>EnrollStudent</h1>
+        <br />
+        <div class="container-fluid">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <label>Student ID:</label>
+                    <div class="form-group">
+                        <input asp-for="studentID" />
+                        <span asp-validation-for="studentID" class="text-danger"></span>
+                    </div>
+                    <label>First Name:</label>
+                    <div class="form-group">
+                        <input asp-for="firstName" />
+                        <span asp-validation-for="firstName" class="text-danger"></span>
+                    </div>
+                    <label>Last Name:</label>
+                    <div class="form-group">
+                        <input asp-for="lastName" />
+                        <span asp-validation-for="lastName" class="text-danger"></span>
+                    </div>
+                    <label>Email:</label>
+                    <div class="form-group">
+                        <input asp-for="eMail" />
+                        <span asp-validation-for="eMail" class="text-danger"></span>
+                    </div>
+                    <label>Program Code:</label>
+                    <div class="form-group">
+                        <input asp-for="programCode" />
+                        <span asp-validation-for="programCode" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-sm-4"><button class="btn btn-success">Add</button></div>
+
+                    <a class="nav-link text-capitalize" asp-area="" asp-page="/Index">Go Back</a>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        @{
+                            if (@Model.studentAdded)
+                            {
+                                <div class="col-sm-12">
+                                    <div class="alert alert-info">Student Added Successfully!</div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>

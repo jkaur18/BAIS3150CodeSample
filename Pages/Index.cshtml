@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>BAIST Code Sample</h1>
+
+<form method="post">
+
+    <a asp-page="./FindStudent" class="btn btn-info" role="button">Student</a>
+    <a asp-page="./FindProgram" class="btn btn-info" role="button">Program</a>
+
+</form>

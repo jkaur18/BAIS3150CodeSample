@@ -1,0 +1,73 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.FindProgramModel
+@{
+    ViewData["Title"] = "FindProgram";
+}
+
+
+
+    <form method="post">
+
+        <h1>FindProgram</h1>
+        <div class="container-fluid">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <a asp-page="./CreateProgram" class="btn btn-info" role="button">Create New</a>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Enter Program Code: <input asp-for="programCode" />
+                            <span asp-validation-for="programCode" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"><button class="btn btn-success">Find</button></div><br />
+                    <div class="row">
+                        <div class="row">
+                            @{
+                                if (@Model.activeProgram != null)
+                                {
+                                    if (@Model.activeProgram.EnrolledStudents.Count > 0)
+                                    {
+                                        <div class="col-sm-12">
+                                            <b><u>Program Details:</u></b><br />
+                                            <div>Program Code: @Model.activeProgram.programCode</div>
+                                            <div>Description: @Model.activeProgram.Description</div><br />
+                                            <b><u> Students enrolled in @Model.activeProgram.Description :</u></b><br />
+                                        </div>
+                                        <table class="table">
+                                            <tr>
+                                                <th>Student ID</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Phone Number</th>
+                                            </tr>
+                                            @foreach (var student in Model.activeProgram.EnrolledStudents)
+                                            {
+                                                <tr>
+                                                    <td>@student.Studentid</td>
+                                                    <td> @student.Firstname </td>
+                                                    <td> @student.Lastname</td>
+                                                    <td>@student.Email</td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    }
+                                    else
+                                    {
+                                        <div class="col-sm-12">
+                                            <div class="alert alert-danger">No active program found!</div>
+                                        </div>
+                                    }
+                                }
+                            }
+                            @if (Model.Alert != null)
+                            {
+                                <div class="alert alert-primary" role="alert">
+                                    @Model.Alert
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>

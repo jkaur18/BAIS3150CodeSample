@@ -1,0 +1,83 @@
+﻿@page
+@model Jkaur18BAIS3150CodeSample.Pages.FindStudentModel
+@{
+    ViewData["Title"] = "FindStudent";
+}
+
+<h1>FindStudent</h1>
+
+@{
+    ViewData["Title"] = "FindStudent";
+}
+
+<form method="post"> 
+    <a asp-page="./Index" class="btn btn-info" role="button">Home</a>
+    <a asp-page="./EnrollStudent" class="btn btn-info" role="button">Create New</a>
+    <br />
+    <br />
+    <br />
+    <div class="container-fluid">
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group">
+                        Student ID:
+                        <input asp-for="studentID" />
+                        <span asp-validation-for="studentID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-4"><button class="btn btn-success">Find</button></div>
+               
+
+                </br>
+                </br>
+                <div class="row">
+                    <div class="row">
+                        @{
+                            if (@Model.enrolledStudent != null)
+                            {
+                                if (Model.foundStudent)
+                                {
+                                    <table class="table">
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                        </tr>
+                                        <tr>
+                                            <td> @Model.enrolledStudent.Firstname </td>
+                                            <td> @Model.enrolledStudent.Lastname</td>
+                                            <td>@Model.enrolledStudent.Email</td>
+
+                                            <td>
+                                                <a asp-page="./RemoveStudent" asp-route-id="@Model.enrolledStudent.Studentid" class="btn"><i class="fa fa-trash"></i> Delete</a>
+                                            </td>
+                                            <td>
+                                                <a asp-page="./ModifyStudent" asp-route-id="@Model.enrolledStudent.Studentid" class="btn"><i class="fas fa-user-edit"></i> Edit</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                }
+                                @*else
+                        {
+                            <div class="col-sm-12">
+                                <div class="alert alert-danger">Student does not exist!</div>
+                            </div>
+                        }*@
+                            }
+
+                        }
+                    </div>
+                    @if (Model.Alert != null)
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            @Model.Alert
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
