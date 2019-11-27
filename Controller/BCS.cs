@@ -67,15 +67,5 @@ namespace Jkaur18BAIS3150CodeSample.Controller
             return confirmation;
         }
 
-        public List<Model.Student> FindStudents(string programcode)
-        {
-            List<Model.Student> enrolledStudent = new List<Model.Student>();
-
-            Model.Students StudentManager = new Model.Students();
-
-            enrolledStudent = StudentManager.GetStudents(programcode);
-
-            return enrolledStudent;
-        }
     }
 }
